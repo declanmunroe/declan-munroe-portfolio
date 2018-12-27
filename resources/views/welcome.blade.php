@@ -82,6 +82,8 @@
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
+                    <br>
+                    Environment : <?php echo app()->env; ?>
                 </div>
 
                 <div class="links">
