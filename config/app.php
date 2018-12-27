@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', getenv('APP_ENV')), // Get app env from heruko variable
 
     /*
     |--------------------------------------------------------------------------
