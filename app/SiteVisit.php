@@ -10,4 +10,6 @@ class SiteVisit extends Model
     protected $table = 'site_visits';
     
     public $primaryKey = 'id';
+    
+    public $timestamps = false;
 }
