@@ -19,6 +19,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        //'http://portfolio.localhost/siteviewsdfdf' any sites listed here are urls that will avoid csrf token validation
     ];
 }

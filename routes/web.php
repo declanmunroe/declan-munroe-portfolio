@@ -11,6 +11,8 @@
 |
 */
 
+Route::post('/siteviews', 'PagesController@siteviews');
+
 Route::get('/', function () {
     return view('welcome');
 });
