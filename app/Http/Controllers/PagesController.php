@@ -9,7 +9,12 @@ class PagesController extends Controller
 {
     public function siteviews(Request $request)
     {
-        return $request;
+        // Insert into database
+        $visit = new SiteVisit();
+        $visit->visit = $request['value'];
+        $visit->date = now();
+        $visit->save();
+        return array('status' => 1);
     }
     
     public function home()
