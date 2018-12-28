@@ -24,7 +24,16 @@
 <script>
    
     $("#proceed").click(function(){
-        alert("Working");
+        var token = "<?= csrf_token() ?>";
+        console.log(token);
+        $.ajax({
+            type: 'POST',
+            url: '/siteviews',
+            data: { value : 1, _token: token },
+            success: function(result) {
+                console.log(result);
+            }
+        });
     }); 
 
 </script>
