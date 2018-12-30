@@ -28,7 +28,7 @@
         console.log(token);
         $.ajax({
             type: 'POST',
-            url: '/siteviews',
+            url: 'https://declan-munroe-portfolio.herokuapp.com/siteviews',
             data: { value : 1, _token: token },
             success: function(result) {
                 console.log(result['status']);
