@@ -25,4 +25,9 @@ class PagesController extends Controller
         
         return view('home')->with($data);
     }
+    
+    public function conn()
+    {
+        return SiteVisit::all();
+    }
 }
