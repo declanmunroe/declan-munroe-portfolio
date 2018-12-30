@@ -4,8 +4,6 @@
     </IfModule>
 
     RewriteEngine On
-    
-    Header set Access-Control-Allow-Origin https://declan-munroe-portfolio.herokuapp.com/
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
