@@ -32,7 +32,7 @@
             data: { value : 1, _token: token },
             success: function(result) {
                 console.log(result['status']);
-                window.location = '/home';
+                window.location = 'https://declan-munroe-portfolio.herokuapp.com/home';
             }
         });
     }); 
