@@ -28,11 +28,11 @@
         console.log(token);
         $.ajax({
             type: 'POST',
-            url: 'https://declan-munroe-portfolio.herokuapp.com/siteviews',
+            url: '/siteviews',
             data: { value : 1, _token: token },
             success: function(result) {
                 console.log(result['status']);
-                window.location = 'https://declan-munroe-portfolio.herokuapp.com/home';
+                window.location = '/home';
             }
         });
     }); 
