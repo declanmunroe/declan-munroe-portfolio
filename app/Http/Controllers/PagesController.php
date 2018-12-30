@@ -19,6 +19,10 @@ class PagesController extends Controller
     
     public function home()
     {
-        return SiteVisit::all();
+        $no_of_visits = SiteVisit::all()->sum('visit');
+        
+        $data = array('visit' => $no_of_visits);
+        
+        return view('home')->with($data);
     }
 }
