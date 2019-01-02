@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\SiteVisit;
+use App\ApiToken;
 use Mail;
 
 class PagesController extends Controller
@@ -51,16 +52,32 @@ class PagesController extends Controller
     {
         $email = $request->email;
         
-        $result = $this->sendemail($email);
+        $email_exists = ApiToken::where('email', $email)->first();
+        
+        if ($email_exists)
+        {
+            $result = "Email address already in our system";
+        }
+        else
+        {
+            $rand = md5(time());
+            
+            $api_token = new ApiToken();
+            $api_token->email = $request->email;
+            $api_token->token = $rand;
+            $api_token->save();
+            
+            $result = $this->sendemail($email, $rand);
+        }
         
         return $result;
     }
     
-    public function sendemail($email)
+    public function sendemail($email, $token)
     {
         $this->email = $email;
         
-        $data = array('email' => $email);
+        $data = array('email' => $email, 'token' => $token);
         
         Mail::send('email.apitoken', $data, function($message) {
             $message->to($this->email, 'Api Token')
