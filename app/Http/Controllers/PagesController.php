@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\SiteVisit;
+use Mail;
 
 class PagesController extends Controller
 {
+    private $email;
+    
     public function siteviews(Request $request)
     {
         // Insert into database
@@ -47,6 +50,23 @@ class PagesController extends Controller
     public function apitoken(Request $request)
     {
         $email = $request->email;
-        die(var_dump($email));
+        
+        $result = $this->sendemail($email);
+        
+        return $result;
+    }
+    
+    public function sendemail($email)
+    {
+        $this->email = $email;
+        
+        $data = array('email' => $email);
+        
+        Mail::send('email.apitoken', $data, function($message) {
+            $message->to($this->email, 'Api Token')
+                    ->subject('Your Api token')
+                    ->from('declanmunroedeveloper@gmail.com', 'Declan Munroe');
+        });
+        return "Mail has been sent to $this->email";
     }
 }
