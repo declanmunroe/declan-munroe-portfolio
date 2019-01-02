@@ -26,8 +26,16 @@ class PagesController extends Controller
         return view('home')->with($data);
     }
     
-    public function conn()
+    public function testapi(Request $request)
     {
-        return SiteVisit::all();
+        $token = $request->query('token');
+        
+        if ($token != '1234')
+        {
+            return "Invalid";
+        }
+        else {
+            return SiteVisit::all();
+        }
     }
 }

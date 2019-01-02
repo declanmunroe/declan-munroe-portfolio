@@ -14,7 +14,7 @@
 Route::post('/siteviews', 'PagesController@siteviews');
 
 Route::get('/home', 'PagesController@home');
-Route::get('/conn', 'PagesController@conn');
+Route::get('/testapi', 'PagesController@testapi');
 
 Route::get('/', function () {
     return view('welcome');
