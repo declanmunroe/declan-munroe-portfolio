@@ -34,12 +34,16 @@ class PagesController extends Controller
     {
         $token = $request->query('token');
         
-        if ($token != '1234')
+        $token_exists = ApiToken::where('token', $token)->first();
+        
+        if ($token_exists)
         {
-            return "Invalid";
+            $token_exists = $token_exists->toArray();
+            //die(print_r($token_exists));
+            return SiteVisit::all();
         }
         else {
-            return SiteVisit::all();
+            return "Invalid token in url";
         }
     }
     
