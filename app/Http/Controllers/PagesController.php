@@ -38,4 +38,15 @@ class PagesController extends Controller
             return SiteVisit::all();
         }
     }
+    
+    public function requestapitoken()
+    {
+        return view('requestapitoken');
+    }
+    
+    public function apitoken(Request $request)
+    {
+        $email = $request->email;
+        die(var_dump($email));
+    }
 }

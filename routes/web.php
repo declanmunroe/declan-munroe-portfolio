@@ -12,6 +12,8 @@
 */
 
 Route::post('/siteviews', 'PagesController@siteviews');
+Route::get('/requestapitoken', 'PagesController@requestapitoken');
+Route::post('/apitoken', 'PagesController@apitoken');
 
 Route::get('/home', 'PagesController@home');
 Route::get('/testapi', 'PagesController@testapi');
