@@ -21,3 +21,6 @@ Route::get('/testapi', 'PagesController@testapi');
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/s3/upload', 'S3Controller@upload');
+Route::post('/s3/uploadimg', 'S3Controller@uploadimg');
