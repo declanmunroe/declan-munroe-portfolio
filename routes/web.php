@@ -25,3 +25,5 @@ Route::get('/', function () {
 Route::get('/s3/upload', 'S3Controller@upload');
 Route::post('/s3/uploadimg', 'S3Controller@uploadimg');
 Route::get('/s3/list', 'S3Controller@lists3');
+
+Route::get('/sendcronmail', 'PagesController@sendcronmail');

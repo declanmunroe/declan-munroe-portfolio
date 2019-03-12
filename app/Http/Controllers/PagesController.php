@@ -90,4 +90,17 @@ class PagesController extends Controller
         });
         return "Mail has been sent to $this->email";
     }
+    
+    public function sendcronmail()
+    {
+        $data = array('email' => 'munroedeclan@gmail.com', 'token' => '1234token');
+        
+        Mail::send('email.apitoken', $data, function($message) {
+            $message->to('munroedeclan@gmail.com', 'Api Token')
+                    ->subject('Test cron mail')
+                    ->from('declanmunroedeveloper@gmail.com', 'Declan Munroe');
+        });
+        
+        echo "Cron mail sent";
+    }
 }
