@@ -41,9 +41,6 @@ class S3Controller extends Controller
         
         echo "<a href='{$upload_img['ObjectURL']}'>{$upload_img['ObjectURL']}</a>";
         
-        
-        
-        echo $basename;
     }
     
     public function upload()
@@ -53,6 +50,7 @@ class S3Controller extends Controller
     
     public function lists3()
     {
+        die("Not working");
         $s3Client = S3Client::factory(array(
             'credentials' => array(
                 'key'    => config('constants.AWS_ACCESS_KEY'),
