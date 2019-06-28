@@ -31,8 +31,8 @@ class S3Controller extends Controller
         //die($path);
         
         $upload_img = $s3Client->putObject(array(
-                'Bucket' => 'declan-developer-upload',
-                'Key'    => $basename,
+                'Bucket' => 'irish-computer-society-media',
+                'Key'    => 'uploadedImages/'.$basename,
                 'SourceFile' => $path,
                 'ContentType' => $mime
             ));
