@@ -11,6 +11,7 @@ class S3Controller extends Controller
     
     public function uploadimg(Request $request)
     {
+        die("Not working");
         //config('constants.AWS_ACCESS_KEY')
         
         $s3Client = S3Client::factory(array(
@@ -45,6 +46,7 @@ class S3Controller extends Controller
     
     public function upload()
     {
+        die("Not working");
         return view('s3.upload');
     }
     
